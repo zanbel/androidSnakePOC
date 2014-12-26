@@ -1,0 +1,93 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:paddingBottom="@dimen/activity_vertical_margin"
+    android:paddingLeft="@dimen/activity_horizontal_margin"
+    android:paddingRight="@dimen/activity_horizontal_margin"
+    android:paddingTop="@dimen/activity_vertical_margin"
+    tools:context=".StartScreen" >
+
+    <FrameLayout
+        android:id="@+id/accFrame"
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent" >
+    </FrameLayout>
+
+    <EditText
+        android:id="@+id/rangeEditText"
+        android:layout_width="100dp"
+        android:layout_height="wrap_content"
+        android:layout_above="@+id/threasholdEditText"
+        android:layout_centerInParent="true"
+        android:ems="10"
+        android:inputType="numberDecimal"
+        android:text="@string/default_range"
+        android:textSize="20sp" >
+
+        <requestFocus />
+    </EditText>
+
+    <EditText
+        android:id="@+id/threasholdEditText"
+        android:layout_width="100dp"
+        android:layout_height="wrap_content"
+        android:layout_above="@+id/speedSpinner"
+        android:layout_centerInParent="true"
+        android:ems="10"
+        android:inputType="numberDecimal"
+        android:text="@string/default_threshold"
+        android:textSize="20sp" >
+
+        <requestFocus />
+    </EditText>
+
+    <Spinner
+        android:id="@+id/speedSpinner"
+        android:layout_width="100dp"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_centerInParent="true"
+        android:background="@android:drawable/btn_dropdown"
+        android:spinnerMode="dropdown" />
+
+    <TextView
+        android:id="@+id/speedTextView"
+        android:layout_width="wrap_content"
+        android:layout_height="45dp"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentLeft="true"
+        android:layout_toLeftOf="@+id/speedSpinner"
+        android:text="@string/start_speed"
+        android:textSize="20sp" />
+
+    <TextView
+        android:id="@+id/TiltTextView"
+        android:layout_width="wrap_content"
+        android:layout_height="45dp"
+        android:layout_above="@+id/speedTextView"
+        android:layout_alignParentLeft="true"
+        android:layout_toLeftOf="@+id/threasholdEditText"
+        android:text="@string/start_tilt"
+        android:textSize="20sp" />
+
+    <TextView
+        android:id="@+id/rangeTextView"
+        android:layout_width="wrap_content"
+        android:layout_height="35dp"
+        android:layout_above="@+id/TiltTextView"
+        android:layout_alignParentLeft="true"
+        android:layout_toLeftOf="@+id/rangeEditText"
+        android:text="@string/start_range"
+        android:textSize="20sp" />
+
+    <Button
+        android:id="@+id/statButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentRight="true"
+        android:onClick="statButtonClicked"
+        android:text="Stat"  />
+
+</RelativeLayout>
