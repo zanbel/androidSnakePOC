@@ -21,5 +21,4 @@
             android:label="@string/title_activity_snake_screen" >
         </activity>
     </application>
-
 </manifest>
