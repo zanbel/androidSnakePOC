@@ -14,5 +14,8 @@
     <string name="start_tilt">Tilt</string>
     <string name="start_range">Range</string>
     <string name="title_activity_snake_screen">SnakeScreen</string>
+    <string name="title_activity_stat_screen">StatScreen</string>
+    <string name="title_activity_ate_picker_screen">atePickerScreen</string>
+    <string name="title_activity_date_picker_screen">DatePickerScreen</string>
 
 </resources>

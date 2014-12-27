@@ -201,12 +201,9 @@ public class StartScreen extends Activity {
         }
     }
 
-    /*
 	public void statButtonClicked(View view){
 
 		Intent intent = new Intent(this, DatePickerScreen.class);
 		startActivity(intent);
 	}
-	*/
-
 }
