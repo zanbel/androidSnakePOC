@@ -38,8 +38,5 @@
             android:screenOrientation="portrait" >
         </activity>
     </application>
-<<<<<<< HEAD
 </manifest>
-=======
-</manifest>
->>>>>>> master
+
