@@ -1,0 +1,70 @@
+// Top-level build file where you can add configuration options common to all sub-projects/modules.
+
+buildscript {
+    repositories {
+        jcenter()
+    }
+    dependencies {
+        classpath 'com.android.tools.build:gradle:1.0.0'
+        classpath 'com.jfrog.bintray.gradle:gradle-bintray-plugin:1.0'
+    }
+}
+apply plugin: 'com.jfrog.bintray'
+
+allprojects {
+    repositories {
+        jcenter()
+    }
+}
+
+bintray {
+    user = 'zanbel'
+    key = 'fd3796c868aefcf69747d980ce606daebf12b612'
+
+    configurations = ['deployables'] //When uploading configuration files
+    // - OR -
+    // publications = ['mavenStuff'] //When uploading Maven-based publication files
+    // - AND/OR -
+    filesSpec { //When uploading any arbitrary files ('filesSpec' is a standard Gradle CopySpec)
+        from 'arbitrary-files'
+        into 'standalone_files/level1'
+        rename '(.+)\\.(.+)', '$1-suffix.$2'
+    }
+    dryRun = false //Whether to run this as dry-run, without deploying
+    publish = true //If version should be auto published after an upload
+    pkg {
+        repo = 'androidSnake'
+        //userOrg = 'zOrg'
+        //An optional organization name when the repo belongs to one of the user's orgs
+        name = 'androidSnake'
+        desc = 'Snake game for android controled by gyro/ accelerometer'
+        websiteUrl = 'https://github.com/zanbel/androidSnakePOC'
+        issueTrackerUrl = 'https://github.com/zanbel/androidSnakePOC/issues'
+        vcsUrl = 'https://github.com/zanbel/androidSnakePOC.git'
+        licenses = ['MIT']
+        labels = ['snake', 'android']
+        publicDownloadNumbers = true
+        // attributes= ['a': ['ay1', 'ay2'], 'b': ['bee'], c: 'cee'] //Optional package-level attributes
+        //Optional version descriptor
+        version {
+            name = '0.2' //Bintray logical version name
+            desc = ''
+            released = ''
+            //2 possible values: date in the format of 'yyyy-MM-dd'T'HH:mm:ss.SSSZZ' OR a java.util.Date instance
+            vcsTag = ''
+            // attributes = [''] //Optional version-level attributes
+            gpg {
+                sign = false //Determines whether to GPG sign the files. The default is false
+                passphrase = 'passphrase' //Optional. The passphrase for GPG signing'
+            }
+            mavenCentralSync {
+                sync = false
+                //Optional (true by default). Determines whether to sync the version to Maven Central.
+                user = 'userToken' //OSS user token
+                password = 'paasword' //OSS user password
+                close = '1'
+                //Optional property. By default the staging repository is closed and artifacts are released to Maven Central. You can optionally turn this behaviour off (by puting 0 as value) and release the version manually.
+            }
+        }
+    }
+}
